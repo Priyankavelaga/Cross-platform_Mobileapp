@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <style>
+        body{
+            background-image: url('/static/bkg1.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+
+        .link {
+            position: fixed;
+            top: 10px; 
+            right: 100px;
+            font-size: 40px;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> List of Items </title>
+</head>
+<body>
+    <h1> <p style= "color:hsla(246, 53%, 52%, 0.906)">ITEMS LIST</p>
+    </h1>
+
+    <h2>
+        <em>
+            <ul>
+                {% for item in items %}
+                <li>
+                    <strong>Name:</strong>
+                    <div style="color:hsl(316, 55%, 50%)"> {{ item.name }} </div>
+
+                    <strong>Brand:</strong>
+                    <div style="color:hsl(316, 55%, 50%)"> {{ item.brand }} </div>
+
+                    <strong>Description: </strong>
+                    <div style="color:hsl(316, 55%, 50%)"> {% set lines = item['description'].split('\n') %}
+                        {% for line in lines %}
+                            {{ line }} <br>
+                        {% endfor %}
+                    </div>
+                
+                    <strong>Price (In USD): </strong>
+                    <div style="color:hsl(316, 55%, 50%)"> {{ item.price }} </div>
+                </li>
+            
+                
+                <a {
+                    style = "text-decoration: none";
+                    href = "{{ url_for('edit_item', item_index=loop.index0) }}"
+                } > <br>
+                Edit</a> | 
+                                    
+                <a {
+                    style = "text-decoration: none";
+                    href = "{{ url_for('delete_item', item_index=loop.index0) }}"
+                } >
+                Delete</a>
+                <br>
+                <br>
+                <br>
+                {% endfor %}   
+            </ul>
+
+            <a {
+                style = "text-decoration: none";
+                href = "/add" class="link"
+            } >
+            <p style= "color:hsl(276, 79%, 53%)">Add Item >></p></a>
+
+        </em>         
+    </h2>
+   
+</body>
+</html>

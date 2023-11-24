@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Sectional Sofa",
+        "brand": "Thuma.co",
+        "description": "Soft and firm in versatile configurations",
+        "price": "2500"
+    },
+    {
+        "name": "Accent Chair",
+        "brand": "Castleryus",
+        "description": "Light and airy with feather filled cushions",
+        "price": "500"
+    },
+    {
+        "name": "Sweat Shirt",
+        "brand": "Porsche Design",
+        "description": "High-quality designer sweater made of merino wool",
+        "price": "500"
+    }
+]
